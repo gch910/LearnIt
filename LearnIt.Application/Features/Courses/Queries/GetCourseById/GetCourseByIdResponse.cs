@@ -1,6 +1,6 @@
 namespace LearnIt.Application.Features.Courses.Queries.GetCourseById;
 
-public sealed record CourseDto(
+public sealed record GetCourseByIdResponse(
     Guid Id,
     string Title,
     string Description, 
