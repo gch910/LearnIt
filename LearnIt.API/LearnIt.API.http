@@ -1,0 +1,11 @@
+@hostAddress = https://localhost:7055
+
+POST {{hostAddress}}/api/courses
+Content-Type: application/json
+
+{
+  "title": "Intro to C#",
+  "description": "Learn the basics of C#."
+}
+
+###
