@@ -14,10 +14,9 @@ public sealed class GetCourseByIdQueryHandler : IRequestHandler<GetCourseByIdQue
 
     public async Task<GetCourseByIdResponse?> Handle(GetCourseByIdQuery request, CancellationToken cancellationToken)
     {
-        var course = await _courseRepository.GetByIdAsync(request.Id);
+        var course = await _courseRepository.GetByIdAsync(request.Id, cancellationToken);
 
-        //do we need some kind of message here or how do we handle this being null?
-        if (course == null)
+        if (course is null)
         {
             return null;
         }
@@ -27,7 +26,6 @@ public sealed class GetCourseByIdQueryHandler : IRequestHandler<GetCourseByIdQue
             course.Title,
             course.Description,
             course.IsPublished,
-            course.CreatedAtUtc
-        );
+            course.CreatedAtUtc);
     }
 }

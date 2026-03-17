@@ -9,3 +9,8 @@ Content-Type: application/json
 }
 
 ###
+
+GET {{hostAddress}}/api/courses/E1DCB1CB-97EA-4A7A-A63A-C6B713C5270F
+Accept: application/json
+
+###
