@@ -20,6 +20,13 @@ public sealed class CourseConfiguration : IEntityTypeConfiguration<Course>
             .IsRequired()
             .HasMaxLength(2000);
 
+        builder.OwnsOne(c => c.Duration, durationBuilder =>
+        {
+            durationBuilder.Property(d => d.TotalMinutes)
+                .HasColumnName("DurationInMinutes")
+                .IsRequired();
+        });
+
         builder.Property(c => c.IsPublished)
             .IsRequired();
 

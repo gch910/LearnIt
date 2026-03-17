@@ -25,6 +25,7 @@ public sealed class GetCourseByIdQueryHandler : IRequestHandler<GetCourseByIdQue
             course.Id,
             course.Title,
             course.Description,
+            course.Duration.TotalMinutes,
             course.IsPublished,
             course.CreatedAtUtc);
     }
