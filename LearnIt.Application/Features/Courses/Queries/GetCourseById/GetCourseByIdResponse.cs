@@ -4,6 +4,7 @@ public sealed record GetCourseByIdResponse(
     Guid Id,
     string Title,
     string Description, 
+    int DurationInMinutes,
     bool IsPublished,
     DateTime CreatedAtUtc);
 

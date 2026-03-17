@@ -1,5 +1,6 @@
 using LearnIt.Domain.Common;
 using LearnIt.Domain.Exceptions;
+using LearnIt.Domain.ValueObjects;
 
 namespace LearnIt.Domain.Entities;
 
@@ -7,6 +8,7 @@ public sealed class Course : AggregateRoot
 {
     public string Title { get; private set; }
     public string Description { get; private set; }
+    public CourseDuration Duration { get; private set; }
     public bool IsPublished { get; private set; }
     public DateTime CreatedAtUtc { get; private set; }
 
@@ -15,27 +17,30 @@ public sealed class Course : AggregateRoot
     {
         Title = string.Empty;
         Description = string.Empty;
+        Duration = CourseDuration.FromMinutes(1);
     }
-    private Course(Guid id, string title, string description)
+
+    private Course(Guid id, string title, string description, CourseDuration duration)
     {
         Id = id;
         Title = title;
         Description = description;
+        Duration = duration;
         IsPublished = false;
         CreatedAtUtc = DateTime.UtcNow;
     }
 
-    public static Course Create(string title, string description)
+    public static Course Create(string title, string description, CourseDuration duration)
     {
         ValidateTitle(title);
         ValidateDescription(description);
 
-        var course = new Course(Guid.NewGuid(), title.Trim(), description.Trim());
+        var course = new Course(Guid.NewGuid(), title.Trim(), description.Trim(), duration);
 
         return course;
     }
 
-    public void UpdateDetails(string title, string description)
+    public void UpdateDetails(string title, string description, CourseDuration duration)
     {
         EnsureNotPublished();
 
@@ -44,6 +49,7 @@ public sealed class Course : AggregateRoot
 
         Title = title.Trim();
         Description = description.Trim();
+        Duration = duration;
     }
 
     public void Publish()

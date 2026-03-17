@@ -13,5 +13,8 @@ public sealed class CreateCourseCommandValidator : AbstractValidator<CreateCours
         RuleFor(x => x.Description)
             .NotEmpty()
             .MaximumLength(2000);
+        
+        RuleFor(x => x.DurationInMinutes)
+            .GreaterThan(0);
     }
 }

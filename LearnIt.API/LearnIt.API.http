@@ -4,13 +4,14 @@ POST {{hostAddress}}/api/courses
 Content-Type: application/json
 
 {
-  "title": "Intro to C#",
-  "description": "Learn the basics of C#."
+  "title": "Testing Duration In Minutes",
+  "description": "Duration in minutes test description",
+  "durationInMinutes": 180
 }
 
 ###
 
-GET {{hostAddress}}/api/courses/E1DCB1CB-97EA-4A7A-A63A-C6B713C5270F
+GET {{hostAddress}}/api/courses/0bc6e20e-01e3-46e4-ba39-a61c2b8035ff
 Accept: application/json
 
 ###
