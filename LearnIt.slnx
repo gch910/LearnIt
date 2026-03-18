@@ -1,6 +1,8 @@
 <Solution>
   <Project Path="LearnIt.API/LearnIt.API.csproj" />
+  <Project Path="LearnIt.Application.Tests/LearnIt.Application.Tests.csproj" />
   <Project Path="LearnIt.Application/LearnIt.Application.csproj" />
+  <Project Path="LearnIt.Domain.Tests/LearnIt.Domain.Tests.csproj" />
   <Project Path="LearnIt.Domain/LearnIt.Domain.csproj" />
   <Project Path="LearnIt.Infrastructure/LearnIt.Infrastructure.csproj" />
 </Solution>
