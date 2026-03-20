@@ -1,4 +1,5 @@
 using LearnIt.Domain.Common;
+using LearnIt.Domain.DomainEvents;
 using LearnIt.Domain.Exceptions;
 using LearnIt.Domain.ValueObjects;
 
@@ -36,6 +37,8 @@ public sealed class Course : AggregateRoot
         ValidateDescription(description);
 
         var course = new Course(Guid.NewGuid(), title.Trim(), description.Trim(), duration);
+
+        course.AddDomainEvent(new CourseCreatedDomainEvent(course.Id));
 
         return course;
     }
