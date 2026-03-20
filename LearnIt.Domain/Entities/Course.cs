@@ -38,6 +38,7 @@ public sealed class Course : AggregateRoot
 
         var course = new Course(Guid.NewGuid(), title.Trim(), description.Trim(), duration);
 
+        // raise domain event
         course.AddDomainEvent(new CourseCreatedDomainEvent(course.Id));
 
         return course;
