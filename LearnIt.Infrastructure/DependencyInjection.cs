@@ -1,3 +1,4 @@
+using LearnIt.Application.Common;
 using LearnIt.Domain.Abstractions;
 using LearnIt.Infrastructure.Persistence;
 using LearnIt.Infrastructure.Repositories;
@@ -20,6 +21,7 @@ public static class DependencyInjection
 
         services.AddScoped<ICourseRepository, CourseRepository>();
         services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<ApplicationDbContext>());
+        services.AddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
 
         return services;
     }
